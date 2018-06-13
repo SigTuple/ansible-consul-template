@@ -10,7 +10,7 @@ wait = "{{consul_template_wait}}"
 {% if consul_template_templates %}
 {% for template in consul_template_templates %}
 template {
-  source = "{{ consul_template_home }}/templates/{{ template.name }}"
+  source = "{{ template_file_path }}"
   destination = "{{ template.dest }}"
   {% if template.cmd is defined %}command = "{{ template.cmd }}"{% endif %}
   {% if template.perms is defined %}perms = {{ template.perms }}{% endif %}
